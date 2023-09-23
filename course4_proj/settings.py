@@ -51,6 +51,7 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'movies',
         'gh',
+        'django_celery_results',
     ]
 
     MIDDLEWARE = [
@@ -135,6 +136,9 @@ class Dev(Configuration):
     STATIC_URL = '/static/'
 
     OMDB_KEY = "abc123"
+
+    CELERY_RESULT_BACKEND = "django-db"
+    CELERY_BROKER_URL = "redis://localhost:6379/0"
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
